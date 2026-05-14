@@ -1,22 +1,16 @@
-import { useEffect, useState } from 'react';
-import { ObtenerListaPokemon, type PokemonBase } from './services/pokemon.service';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PokemonLista from './pages/PokemonLista';
+import PokemonDetalle from './pages/PokemonDetalle';
+import './App.css';
 
 function App() {
-  const [ListaPokemon, setListaPokemon] = useState<PokemonBase[]>([]);
-
-  useEffect (() => {
-    ObtenerListaPokemon().then(resultado => setListaPokemon(resultado));
-  }, []);
-
   return (
-    <div>
-      <h1>Mi Pokedex 🥶</h1>
-      <ul>
-        {ListaPokemon.map((p) => (
-          <li key={p.name}>{p.name}</li>
-        ))}
-      </ul>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<PokemonLista />} />
+        <Route path='/pokemon/:id' element={<PokemonDetalle />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

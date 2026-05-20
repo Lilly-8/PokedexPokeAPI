@@ -1,5 +1,16 @@
 .lista-pokemon {
   padding: 1.5rem;
+  background-color: #905288;
+}
+
+.lista-pokemon__filtros {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .lista-pokemon__rejilla {
@@ -10,29 +21,20 @@
 }
 
 .tarjeta-pokemon {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: linear-gradient(180deg, var(--code-bg) 0%, var(--bg) 100%);
-  padding: 0.9rem;
-  min-height: 190px;
+  background-color: #b179a6;
+  border-radius: 12px;
+  padding: 0.8rem;
+  min-height: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tarjeta-pokemon:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
 }
 
 .tarjeta-pokemon__contenedor-imagen {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 10px;
-  border: 1px dashed var(--border);
-  background: var(--bg);
+  border-radius: 8px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -66,15 +68,17 @@
 }
 
 .detalle-pokemon {
+  background-color: #905288;
   padding: 1.5rem;
+  min-height: 100vh;
 }
 
 .detalle-pokemon__tarjeta {
   max-width: 560px;
   margin: 0 auto;
-  border: 1px solid var(--border);
   border-radius: 10px;
-  background: var(--bg);
+  background-color: #b179a6;
+  color : #2c1728;
   padding: 1rem;
   text-align: left;
 }
@@ -82,7 +86,7 @@
 .detalle-pokemon__volver {
   display: inline-block;
   text-decoration: none;
-  color: var(--text-h);
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 
@@ -91,6 +95,10 @@
   max-width: 100%;
   display: block;
   margin: 0.75rem auto 1rem;
+}
+
+.tarjeta-pokemon__numero {
+  color : #2c1728;
 }
 
 .detalle-pokemon__tarjeta h1 {
@@ -109,6 +117,48 @@
   margin: 0;
   padding-left: 1.1rem;
 }
+
+.boton_favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #ff4d4d;
+}
+
+.buscar_nombre {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #dbb4d4;
+  background-color: #d3b5cd;
+  color: #2c1728;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .buscar_nombre {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.mensaje_error {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
+  color: white;
+}
+
 
 @media (max-width: 700px) {
   .detalle-pokemon {

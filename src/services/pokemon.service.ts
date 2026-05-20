@@ -5,15 +5,11 @@ export interface PokemonBase {
   url: string;
   image: string;
   id: number;
+  types: string[];
 }
 
 const obtenerDetallePokemon = async (id: number): Promise<Pokemon> => {
   const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
-  if (!respuesta.ok) {
-    throw new Error(`No se pudo obtener el detalle del pokemon con ID: ${id}`);
-  }
-
   return (await respuesta.json()) as Pokemon;
 };
 
@@ -30,6 +26,7 @@ export const ObtenerListaPokemon = async () => {
         url: `https://pokeapi.co/api/v2/pokemon/${id}/`, 
         image: detalle.sprites.other?.['official-artwork']?.front_default ?? detalle.sprites.front_default,
         id: detalle.id,
+        types: detalle.types.map((t) => t.type.name),
       } satisfies PokemonBase;
     }),
   );

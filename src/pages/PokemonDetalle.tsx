@@ -2,21 +2,27 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { obtenerDetalleCompleto } from '../services/pokemon.service';
 import { type Pokemon } from '../types/pokemon';
+import {leerTema } from '../storage/storage';
 
 export default function PokemonDetalle() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [modoOscuro, setModoOscuro] = useState(leerTema());
 
   useEffect(() => {
+    const temaGuardado = leerTema();
+    setModoOscuro(temaGuardado);
+    
+    document.body.style.backgroundColor = temaGuardado ? '#1a1a1a' : '#905288';
+
     if (id) {
       obtenerDetalleCompleto(id).then(res => setPokemon(res));
     }
   }, [id]);
 
-//si no agrego esto no me jala el codigo 😰
   if (!pokemon) {
     return (
-      <main className="detalle-pokemon">
+      <main className={`detalle-pokemon ${modoOscuro ? 'modo-oscuro' : ''}`}>
         <p>Cargando...</p>
       </main>
     );
@@ -29,8 +35,8 @@ export default function PokemonDetalle() {
   const displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
   return (
-    <main className="detalle-pokemon">
-      <div className="detalle-pokemon__tarjeta">
+    <main className={`detalle-pokemon ${modoOscuro ? 'modo-oscuro' : ''}`}>
+      <div className={`detalle-pokemon__tarjeta ${modoOscuro ? 'modo-oscuro' : ''}`}>
         <Link className="detalle-pokemon__volver" to="/">← Volver al listado</Link>
 
         <h1>{displayName}</h1>

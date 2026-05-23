@@ -130,7 +130,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: #ff4d4d;
 }
 
@@ -143,6 +143,162 @@
   width: 100%;
   max-width: 300px;
   font-size: 1rem;
+}
+
+.boton_ver_favs {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #d3b5cd;
+  background-color: #d3b5cd;
+  color: #2c1728;
+  width: 100%;
+  max-width: 170px;
+  font-size: 1rem;
+
+}
+
+.boton_ver_favs.activo {
+  background-color: #d3b5cd;
+  color: #2c1728;
+}
+
+.boton_comparar {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+  background: #913985;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.boton_comparar.seleccionado {
+  background: #e22596;
+  color: white;
+}
+
+.panel_comparador {
+  background: #2c1728;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.comparador_cabecera {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mini_card {
+  background: #b179a6;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mini_card button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.tabla_comparativa table {
+  width: 100%;
+  font-size: 14px;
+}
+
+
+
+/* Diseño para el modo oscuro */
+
+.boton_tema {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background: #67155c;
+  font-size: 0.8rem;
+}
+
+.lista-pokemon.modo-oscuro {
+  background-color: #1a1a1a; 
+  color: #f0f0f0; 
+}
+
+.detalle-pokemon.modo-oscuro {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.modo-oscuro .tarjeta-pokemon {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.modo-oscuro .tarjeta-pokemon__nombre,
+.modo-oscuro .tarjeta-pokemon__numero {
+  color: #ffffff;
+}
+
+.modo-oscuro .buscar_nombre {
+  background-color: #333;
+  border-color: #555;
+  color: white;
+}
+
+.modo-oscuro .panel_comparador {
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.modo-oscuro .boton_ver_favs, 
+.modo-oscuro .boton_tema {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.modo-oscuro .detalle-pokemon__tarjeta {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.detalle-pokemon__tarjeta.modo-oscuro {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.modo-oscuro .detalle-pokemon__tarjeta h1,
+.modo-oscuro .detalle-pokemon__tarjeta h3,
+.modo-oscuro .detalle-pokemon__tarjeta p,
+.modo-oscuro .detalle-pokemon__tarjeta li {
+  color: #ffffff;
+}
+
+.modo-oscuro .detalle-pokemon__volver {
+  color: #ffffff; /* Un color que resalte para volver */
+}
+
+/* Para que los botones de favorito y comparar no se pierdan */
+.modo-oscuro .boton_favorito {
+  background: #444;
+}
+
+.modo-oscuro .boton_comparar {
+  background: #555;
+  color: white;
+  border: 1px solid #777;
 }
 
 @media (max-width: 600px) {

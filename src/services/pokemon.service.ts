@@ -6,6 +6,7 @@ export interface PokemonBase {
   image: string;
   id: number;
   types: string[];
+  stats : {name: string, value: number}[];
 }
 
 const obtenerDetallePokemon = async (id: number): Promise<Pokemon> => {
@@ -27,6 +28,7 @@ export const ObtenerListaPokemon = async () => {
         image: detalle.sprites.other?.['official-artwork']?.front_default ?? detalle.sprites.front_default,
         id: detalle.id,
         types: detalle.types.map((t) => t.type.name),
+        stats: detalle.stats.map((s: any) => ({ name: s.stat.name, value: s.base_stat })),
       } satisfies PokemonBase;
     }),
   );
